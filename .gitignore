@@ -1,0 +1,15 @@
+*.iml
+*.ipr
+*.iws
+*.pyc
+*.log
+.idea
+.svn
+.classpath
+.project
+.settings
+target/
+release.properties
+*.backup
+*.versionsBackup
+build.properties
