@@ -29,7 +29,7 @@ public class TestSliderServiceClient {
 
   @Test
   public void testPressure() {
-    int numThread = 8000;
+    int numThread = 2000;
     System.setProperty(SliderServiceClientConfigKey.SERVICE_ADDRESS, "lg-hadoop-build01.bj:20050");
     final CountDownLatch latch = new CountDownLatch(numThread);
     final CyclicBarrier barrier = new CyclicBarrier(numThread);
