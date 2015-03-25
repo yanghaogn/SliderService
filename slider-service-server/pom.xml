@@ -14,14 +14,14 @@
   <version>0.1.0-SNAPSHOT</version>
   <name>SliderService Server</name>
   <properties>
-    <slider.version>0.60.0-incubating</slider.version>
+    <slider.version>0.61.0-SNAPSHOT</slider.version>
   </properties>
 
   <dependencies>
     <dependency>
       <groupId>com.xiaomi.infra.slider</groupId>
       <artifactId>slider-service-core</artifactId>
-      <version>1.0-SNAPSHOT</version>
+      <version>0.1.0-SNAPSHOT</version>
     </dependency>
 
     <dependency>
@@ -130,5 +130,4 @@
       </plugin>
     </plugins>
   </build>
-
 </project>
