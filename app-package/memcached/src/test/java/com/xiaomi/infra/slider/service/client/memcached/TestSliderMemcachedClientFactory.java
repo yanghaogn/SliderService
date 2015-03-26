@@ -14,8 +14,10 @@ public class TestSliderMemcachedClientFactory {
   @Test
   public void testCreateSliderMemcachedClient() {
     try {
-      System.setProperty(SliderServiceClientConfigKey.SERVICE_ADDRESS, "lg-hadoop-build01.bj:20050");
-      System.setProperty(RequestConfig.USER, "h_yanghao3");
+      //System.setProperty(SliderServiceClientConfigKey.SERVICE_ADDRESS, "lg-hadoop-build01.bj:20050");
+      //System.setProperty(RequestConfig.USER, "h_yanghao3");
+      System.setProperty(SliderServiceClientConfigKey.SERVICE_ADDRESS, "sist06:20050");
+      System.setProperty(RequestConfig.USER, "root");
       String clusterName = "memcached1";
       SliderMemcachedClient client = SliderMemcachedClientFactory.createSliderMemcachedClient(clusterName);
       for (int i = 0; i < 500; i++) {
@@ -24,10 +26,6 @@ public class TestSliderMemcachedClientFactory {
         byte[] value = (byte[]) client.get("yang");
         System.out.println(i + " : " + (value == null ? null : new String(value)));
       }
-    } catch (IOException e) {
-      e.printStackTrace();
-    } catch (InterruptedException e) {
-      e.printStackTrace();
     } catch (Exception e) {
       e.printStackTrace();
     }

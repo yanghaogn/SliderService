@@ -49,7 +49,7 @@ public class SliderServiceClient {
    * 2. cluster启动后，需要等待一段时间，才能获取到正确的信息<br/>
    * 3. 你需要将host:port输出到ws/v1/slider/publisher/exports/servers才能使用，可参考"http://wiki.mioffice.cn/xmg/Metainfo.xml#"对metainfo.xml进行配置
    */
-  public Map<String, List<InetSocketAddress>> getHostPorts(String user, String clusterName) throws Exception {
+  public Map<String, List<InetSocketAddress>> getHostPorts(String user, String clusterName) throws IOException, TException {
     Map<String, List<InetSocketAddress>> result = new HashMap<String, List<InetSocketAddress>>();
     String appendContent = "ws/v1/slider/publisher/exports/servers";
     String response = getResponse(RequestConfig.RequestType.DEFAULT, user, clusterName, appendContent);
@@ -64,6 +64,7 @@ public class SliderServiceClient {
       }
       result.put(componentName, listAddress);
     }
+    
     return result;
   }
 
