@@ -30,4 +30,18 @@ public class TestSliderMemcachedClientFactory {
       e.printStackTrace();
     }
   }
+
+  @Test
+  public void testSliderMemcachedClient() throws InterruptedException, IOException {
+    System.setProperty(SliderServiceClientConfigKey.SERVICE_ADDRESS, "sist06:20050");
+    System.setProperty(RequestConfig.USER, "root");
+    String clusterName = "memcached1";
+    SliderMemcachedClient client = SliderMemcachedClientFactory.createSliderMemcachedClient(clusterName);
+    for (int i = 0; i < 500; i++) {
+      client.set("yang", 1000, new Double(Math.random()).toString().getBytes());
+      Thread.sleep(200);
+      byte[] value = (byte[]) client.get("yang");
+      System.out.println(i + " : " + (value == null ? null : new String(value)));
+    }
+  }
 }
